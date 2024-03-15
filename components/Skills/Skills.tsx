@@ -2,74 +2,61 @@ export default function Skills() {
   const frontendLanguages = [
     {
       name: "HTML",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/html-logo.svg",
     },
     {
       name: "CSS",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/css-logo.svg",
     },
     {
       name: "Bootstrap",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/bootstrap-logo.svg",
     },
     {
-      name: "Tailwind",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Tailwind CSS",
+      image: "./images/tailwindcss-logo.svg",
     },
     {
       name: "JavaScript",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/js-logo.svg",
     },
     {
       name: "jQuery",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/jquery-logo.svg",
     },
     {
       name: "Vue.js",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/vue-logo.svg",
     },
   ];
 
   const backendLanguages = [
     {
       name: "PHP",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/php-logo.svg",
     },
     {
       name: "Laravel",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/laravel-logo.svg",
     },
     {
       name: "MySQL",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/mysql-logo.svg",
     },
   ];
 
   const inProgressLanguages = [
     {
       name: "TypeScript",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/typescript-logo.svg",
     },
     {
       name: "Next.js",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/nextjs-logo.svg",
     },
     {
       name: "Prisma",
-      image:
-        "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "./images/prisma-logo.svg",
     },
   ];
 
@@ -81,15 +68,15 @@ export default function Skills() {
           {/* Frontend */}
           <div className="mb-10">
             <h3 className="text-xl mb-5">Front-end</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {frontendLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
-                    <div className="w-full aspect-square border">
+                    <div className="w-full aspect-square">
                       <img
                         src={language.image}
                         alt={language.name}
-                        className="w-full aspect-square object-cover"
+                        className="w-full aspect-square object-contain"
                       />
                     </div>
                     <div className="mt-2">
@@ -105,15 +92,15 @@ export default function Skills() {
           {/* Backend */}
           <div className="mb-10">
             <h3 className="text-xl mb-5">Back-end</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {backendLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
-                    <div className="w-full aspect-square border">
+                    <div className="w-full aspect-square">
                       <img
                         src={language.image}
                         alt={language.name}
-                        className="w-full aspect-square object-cover"
+                        className="w-full aspect-square object-contain"
                       />
                     </div>
                     <div className="mt-2">
@@ -129,15 +116,15 @@ export default function Skills() {
           {/* In Progress */}
           <div>
             <h3 className="text-xl mb-5">In progress</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {inProgressLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
-                    <div className="w-full aspect-square border">
+                    <div className="w-full aspect-square">
                       <img
                         src={language.image}
                         alt={language.name}
-                        className="w-full aspect-square object-cover"
+                        className="w-full aspect-square object-contain"
                       />
                     </div>
                     <div className="mt-2">
