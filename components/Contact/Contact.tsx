@@ -1,13 +1,13 @@
 export default function Contact() {
   return (
     <section>
-      <div className="max-w-[1000px] mx-auto my-0">
-        <div className="p-10">
+      <div className="max-w-[1200px] mx-auto my-0">
+        <div className="px-5 py-[70px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
           <form className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>
               <label className="block mb-2" htmlFor="fullname">
-                Full Name *
+                Full Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -20,7 +20,7 @@ export default function Contact() {
             </div>
             <div>
               <label className="block mb-2" htmlFor="email">
-                Email *
+                Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -45,7 +45,7 @@ export default function Contact() {
             </div>
             <div className="md:col-span-3">
               <label className="block mb-2" htmlFor="message">
-                Message *
+                Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 className="p-2 w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"

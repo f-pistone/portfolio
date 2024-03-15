@@ -29,9 +29,10 @@ export default function Projects() {
   ];
 
   return (
-    <section className="bg-blue-800">
-      <div className="max-w-[1000px] mx-auto my-0">
-        <div className="p-10">
+    <section>
+      <div className="max-w-[1200px] mx-auto my-0">
+        <div className="px-5 py-[70px]">
+          <h2 className="text-center text-3xl mb-10">Projects</h2>
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {projects.map((project) => (
               <li key={project.id}>

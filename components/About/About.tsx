@@ -1,8 +1,8 @@
 export default function About() {
   return (
-    <section className="bg-red-800">
-      <div className="max-w-[1000px] mx-auto my-0">
-        <div className="p-10 flex flex-col md:flex-row items-center gap-10">
+    <section>
+      <div className="max-w-[1200px] mx-auto my-0">
+        <div className="px-5 py-[70px] flex flex-col md:flex-row items-center gap-10">
           <div className="shrink-0 w-[300px] aspect-square border"></div>
           <div>
             <p>
