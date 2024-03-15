@@ -5,24 +5,31 @@ import { useEffect } from "react";
 function showMobileMenu() {
   const mobileMenu = document.getElementById("mobile-menu");
   mobileMenu?.classList.remove("hidden");
-  document.querySelector("body")?.classList.add("overflow-none");
+  document.querySelector("body")?.classList.add("overflow-hidden");
 }
 
 function hideMobileMenu() {
   const mobileMenu = document.getElementById("mobile-menu");
   mobileMenu?.classList.add("hidden");
-  document.querySelector("body")?.classList.remove("overflow-none");
+  document.querySelector("body")?.classList.remove("overflow-hidden");
 }
 
 export default function Navbar() {
-  const navbarElements = [
+  const sections = [
     {
+      id: "#about",
       name: "About",
     },
     {
+      id: "#skills",
+      name: "Skills",
+    },
+    {
+      id: "#projects",
       name: "Projects",
     },
     {
+      id: "#contact",
       name: "Contact",
     },
   ];
@@ -43,9 +50,9 @@ export default function Navbar() {
 
       {/* MENU */}
       <ul className="hidden md:flex justify-end items-center gap-5">
-        {navbarElements.map((navbarElement, index) => (
+        {sections.map((section, index) => (
           <li key={index} className="text-lg">
-            {navbarElement.name}
+            <a href={section.id}>{section.name}</a>
           </li>
         ))}
       </ul>
@@ -98,9 +105,9 @@ export default function Navbar() {
 
         {/* MENU */}
         <ul className="flex flex-col justify-center items-center gap-10">
-          {navbarElements.map((navbarElement, index) => (
+          {sections.map((section, index) => (
             <li key={index} className="text-2xl">
-              {navbarElement.name}
+              <a href={section.id}>{section.name}</a>
             </li>
           ))}
         </ul>

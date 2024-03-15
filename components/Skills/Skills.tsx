@@ -74,7 +74,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className="bg-gray-50">
+    <section id="skills" className="bg-gray-50">
       <div className="max-w-[1200px] mx-auto my-0">
         <div className="px-5 py-[70px]">
           <h2 className="text-center text-3xl mb-10">Skills</h2>
