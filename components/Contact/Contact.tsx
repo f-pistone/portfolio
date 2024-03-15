@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-gray-50">
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[70px]">
+        <div className="px-5 py-[150px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
           <form className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div>

@@ -63,7 +63,7 @@ export default function Skills() {
   return (
     <section id="skills" className="bg-gray-50">
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[70px]">
+        <div className="px-5 py-[150px]">
           <h2 className="text-center text-3xl mb-10">Skills</h2>
           {/* Frontend */}
           <div className="mb-10">
