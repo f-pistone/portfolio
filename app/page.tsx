@@ -5,7 +5,7 @@ import Contact from "@/components/Contact/Contact";
 
 export default function Main() {
   return (
-    <main>
+    <main className="pt-[100px]">
       <About></About>
       <Skills></Skills>
       <Projects></Projects>
