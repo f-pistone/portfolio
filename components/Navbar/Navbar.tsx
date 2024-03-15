@@ -107,7 +107,9 @@ export default function Navbar() {
         <ul className="flex flex-col justify-center items-center gap-10">
           {sections.map((section, index) => (
             <li key={index} className="text-2xl">
-              <a href={section.id}>{section.name}</a>
+              <a href={section.id} onClick={hideMobileMenu}>
+                {section.name}
+              </a>
             </li>
           ))}
         </ul>
