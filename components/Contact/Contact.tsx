@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section>
+    <section className="bg-gray-50">
       <div className="max-w-[1200px] mx-auto my-0">
         <div className="px-5 py-[70px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
@@ -11,7 +11,7 @@ export default function Contact() {
               </label>
               <input
                 type="text"
-                className="p-2 w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="fullname"
                 id="fullname"
                 placeholder="Full Name"
@@ -24,7 +24,7 @@ export default function Contact() {
               </label>
               <input
                 type="email"
-                className="p-2 w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="email"
                 id="email"
                 placeholder="Email"
@@ -37,7 +37,7 @@ export default function Contact() {
               </label>
               <input
                 type="text"
-                className="p-2 w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="phone"
                 id="phone"
                 placeholder="Phone"
@@ -48,7 +48,7 @@ export default function Contact() {
                 Message <span className="text-red-500">*</span>
               </label>
               <textarea
-                className="p-2 w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="message"
                 id="message"
                 placeholder="Message"
