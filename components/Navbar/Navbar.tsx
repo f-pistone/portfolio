@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import "./Navbar.css";
+import { useEffect, useState } from "react";
 
 function showMobileMenu() {
   const mobileMenu = document.getElementById("mobile-menu");
@@ -19,26 +20,52 @@ export default function Navbar() {
     {
       id: "#about",
       name: "About",
+      isActive: true,
     },
     {
       id: "#skills",
       name: "Skills",
+      isActive: false,
     },
     {
       id: "#projects",
       name: "Projects",
+      isActive: false,
     },
     {
       id: "#contact",
       name: "Contact",
+      isActive: false,
     },
   ];
+
+  const [sectionsNavbar, setActive] = useState(sections);
+
+  function handleActive(id: string) {
+    sectionsNavbar.forEach((section) => {
+      if (section.id == id) {
+        section.isActive = true;
+      } else {
+        section.isActive = false;
+      }
+    });
+    setActive([...sectionsNavbar]);
+  }
 
   useEffect(() => {
     window.addEventListener("resize", function () {
       if (window.innerWidth > 768) {
         hideMobileMenu();
       }
+    });
+    window.addEventListener("scroll", function () {
+      const sectionsEl = document.querySelectorAll(".section");
+      console.log(sectionsEl);
+      sectionsEl?.forEach((section) => {
+        if (window.scrollY >= section.offsetTop - 300) {
+          handleActive(`#${section.id}`);
+        }
+      });
     });
   }, []);
 
@@ -50,8 +77,11 @@ export default function Navbar() {
 
       {/* MENU */}
       <ul className="hidden md:flex justify-end items-center gap-5">
-        {sections.map((section, index) => (
-          <li key={index} className="text-lg">
+        {sectionsNavbar.map((section, index) => (
+          <li
+            key={index}
+            className={`${section.isActive ? "active" : ""} menu-li text-lg`}
+          >
             <a href={section.id}>{section.name}</a>
           </li>
         ))}
@@ -105,9 +135,18 @@ export default function Navbar() {
 
         {/* MENU */}
         <ul className="flex flex-col justify-center items-center gap-10">
-          {sections.map((section, index) => (
-            <li key={index} className="text-2xl">
-              <a href={section.id} onClick={hideMobileMenu}>
+          {sectionsNavbar.map((section, index) => (
+            <li
+              key={index}
+              className={`${section.isActive ? "active" : ""} menu-li text-2xl`}
+            >
+              <a
+                href={section.id}
+                onClick={() => {
+                  hideMobileMenu();
+                  handleActive(section.id);
+                }}
+              >
                 {section.name}
               </a>
             </li>
