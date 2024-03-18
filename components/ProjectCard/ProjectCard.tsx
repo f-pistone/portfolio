@@ -1,14 +1,21 @@
 interface Project {
+  image: string;
   title: string;
   description: string;
-  image: string;
+  url: string;
+  year: string;
+  languages: {
+    name: string;
+    textColor: string;
+    backgroundColor: string;
+  }[];
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="border h-full">
+    <a href={project.url} target="_blank" className="block border h-full">
       <div>
-        <div className="w-full aspect-square border-b overflow-hidden">
+        <div className="p-3 w-full aspect-square border-b overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
@@ -17,9 +24,25 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
       <div className="p-5">
-        <h6 className="text-lg break-all mb-2">{project.title}</h6>
-        <p className="text-sm break-all">{project.description}</p>
+        <div className="mb-5">
+          <h6 className="text-lg break-all mb-2">{project.title}</h6>
+          <p className="text-sm text-gray-600 break-all">
+            {project.description}
+          </p>
+        </div>
+        <div>
+          <ul className="flex flex-wrap items-center gap-2">
+            {project.languages.map((language, index) => (
+              <li key={index} className={`p-1 text-xs ${language.textColor} ${language.backgroundColor} rounded-md`}>
+                {language.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+      <div className="p-5 text-right text-xs text-gray-600">
+        <span>{project.year}</span>
+      </div>
+    </a>
   );
 }
