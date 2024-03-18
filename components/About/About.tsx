@@ -5,11 +5,13 @@ export default function About() {
         <div className="px-5 py-[150px] flex flex-col md:flex-row items-center gap-10">
           <div className="shrink-0 w-[300px] aspect-square border"></div>
           <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe,
-              nostrum ex. Sint, voluptatum. Perferendis adipisci, id expedita ut
-              fuga architecto iste sequi voluptates autem pariatur, consequatur
-              quidem tempore eveniet nobis?
+            <p className="text-2xl leading-10">
+              Hello there 👋🏻! I'm Francesco and I'm a Jr. Full Stack Web
+              Developer.
+            </p>
+            <p className="text-2xl leading-10">
+              On this website you can find a complete overview of my programming
+              skills and a selection of projects that I made.
             </p>
           </div>
         </div>
