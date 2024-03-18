@@ -71,8 +71,17 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center">
       {/* LOGO */}
-      <div className="w-[50px] aspect-square">
-        <img src="./images/portfolio-logo.svg" alt="Porfolio Logo" className="w-full aspect-square"/>
+      <div
+        className="w-[50px] aspect-square cursor-pointer"
+        onClick={() => {
+          scrollTo(0, 0);
+        }}
+      >
+        <img
+          src="./images/portfolio-logo.svg"
+          alt="Porfolio Logo"
+          className="w-full aspect-square"
+        />
       </div>
       {/* LOGO END */}
 
