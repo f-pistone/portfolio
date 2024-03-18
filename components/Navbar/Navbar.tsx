@@ -60,7 +60,6 @@ export default function Navbar() {
     });
     window.addEventListener("scroll", function () {
       const sectionsEl = document.querySelectorAll(".section");
-      console.log(sectionsEl);
       sectionsEl?.forEach((section) => {
         if (window.scrollY >= section.offsetTop - 300) {
           handleActive(`#${section.id}`);
