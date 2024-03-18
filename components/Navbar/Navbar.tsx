@@ -71,7 +71,9 @@ export default function Navbar() {
   return (
     <nav className="flex justify-between items-center">
       {/* LOGO */}
-      <div className="w-[50px] aspect-square border border-gray-800"></div>
+      <div className="w-[50px] aspect-square">
+        <img src="./images/portfolio-logo.svg" alt="Porfolio Logo" className="w-full aspect-square"/>
+      </div>
       {/* LOGO END */}
 
       {/* MENU */}
