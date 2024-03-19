@@ -1,36 +1,96 @@
 "use client";
 
 import { sendContactForm } from "@/lib/api";
-
-async function sendForm() {
-  const data = {
-    fullName: "Francesco Pistone",
-    email: "francesco@email.com",
-    phone: "1234567890",
-    message: "Hello",
-  };
-  await sendContactForm(data);
-}
+import { useState } from "react";
 
 export default function Contact() {
+  const initValues = {
+    fullName: "",
+    email: "",
+    phone: "",
+    message: "",
+  };
+
+  const [values, setValues] = useState(initValues);
+
+  function handleChange(e: any) {
+    const target = e.target;
+    const { name, value, required } = target;
+
+    if (required == true && (value.trim() === "" || value === undefined)) {
+      target.nextSibling?.classList.remove("hidden");
+      target.classList.add("border-red-500");
+    } else {
+      target.nextSibling?.classList.add("hidden");
+      target.classList.remove("border-red-500");
+    }
+
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  }
+
+  async function sendForm() {
+    const form = document.getElementById("contactForm");
+    const requiredInputs = form?.querySelectorAll(".input-field:required");
+    let valids = 0;
+
+    requiredInputs?.forEach((input) => {
+      let value = input.value;
+
+      if (value.trim() === "" || value === undefined) {
+        input.nextSibling?.classList.remove("hidden");
+        input.classList.add("border-red-500");
+      } else {
+        input.nextSibling?.classList.add("hidden");
+        input.classList.remove("border-red-500");
+        valids++;
+      }
+    });
+
+    if (valids === requiredInputs?.length) {
+      try {
+        const send = await sendContactForm(values);
+        if (send.ok) {
+          console.log("Success");
+        }
+        return;
+      } catch (error) {
+        console.log(error);
+        return;
+      }
+    }
+  }
+
   return (
     <section id="contact" className="section bg-gray-50">
       <div className="max-w-[1200px] mx-auto my-0">
         <div className="px-5 py-[150px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
-          <form className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <form
+            id="contactForm"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          >
             <div>
-              <label className="block mb-2" htmlFor="fullname">
+              <label className="block mb-2" htmlFor="fullName">
                 Full Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
-                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
-                name="fullname"
-                id="fullname"
+                className="input-field p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                name="fullName"
+                id="fullName"
                 placeholder="Full Name"
+                value={values.fullName}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
                 required
               />
+              <span className="error-message hidden text-sm text-red-500">
+                Required
+              </span>
             </div>
             <div>
               <label className="block mb-2" htmlFor="email">
@@ -38,12 +98,19 @@ export default function Contact() {
               </label>
               <input
                 type="email"
-                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="input-field p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="email"
                 id="email"
                 placeholder="Email"
+                value={values.email}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
                 required
               />
+              <span className="error-message hidden text-sm text-red-500">
+                Required
+              </span>
             </div>
             <div>
               <label className="block mb-2" htmlFor="phone">
@@ -51,10 +118,14 @@ export default function Contact() {
               </label>
               <input
                 type="text"
-                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="input-field p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="phone"
                 id="phone"
                 placeholder="Phone"
+                value={values.phone}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
               />
             </div>
             <div className="md:col-span-3">
@@ -62,13 +133,20 @@ export default function Contact() {
                 Message <span className="text-red-500">*</span>
               </label>
               <textarea
-                className="p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
+                className="input-field p-2 bg-transparent w-full border-b hover:border-gray-500 focus:border-blue-500 focus:outline-none transition"
                 name="message"
                 id="message"
                 placeholder="Message"
                 rows={10}
+                value={values.message}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
                 required
               ></textarea>
+              <span className="error-message hidden text-sm text-red-500">
+                Required
+              </span>
             </div>
             <div className="md:col-span-3 text-right">
               <button
