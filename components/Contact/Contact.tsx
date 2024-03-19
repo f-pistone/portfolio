@@ -1,3 +1,17 @@
+"use client";
+
+import { sendContactForm } from "@/lib/api";
+
+async function sendForm() {
+  const data = {
+    fullName: "Francesco Pistone",
+    email: "francesco@email.com",
+    phone: "1234567890",
+    message: "Hello",
+  };
+  await sendContactForm(data);
+}
+
 export default function Contact() {
   return (
     <section id="contact" className="section bg-gray-50">
@@ -60,6 +74,7 @@ export default function Contact() {
               <button
                 type="button"
                 className="px-7 py-3 inline-flex items-center gap-2 rounded-md text-white bg-green-600 hover:bg-green-500 transition"
+                onClick={sendForm}
               >
                 <span>
                   <svg
