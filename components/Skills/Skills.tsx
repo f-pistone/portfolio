@@ -68,7 +68,7 @@ export default function Skills() {
           {/* Frontend */}
           <div className="mb-10">
             <h3 className="text-xl mb-5">Front-end</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {frontendLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
@@ -92,7 +92,7 @@ export default function Skills() {
           {/* Backend */}
           <div className="mb-10">
             <h3 className="text-xl mb-5">Back-end</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {backendLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
@@ -116,7 +116,7 @@ export default function Skills() {
           {/* In Progress */}
           <div>
             <h3 className="text-xl mb-5">In progress</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-5">
+            <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {inProgressLanguages.map((language, index) => (
                 <li key={index}>
                   <div>
