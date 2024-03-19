@@ -7,7 +7,7 @@ export default function Projects() {
       image: "./images/google-forms-clone-logo.svg",
       title: "Google Forms Clone",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptate, alias est porro quaerat sapiente velit eius quia doloremque cupiditate.",
+        "A clone of Google Forms that allows you to create forms with questions and answers and have people complete them.",
       url: "http://localhost/google-forms-clone/",
       year: "2024",
       languages: [
