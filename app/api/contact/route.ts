@@ -46,8 +46,12 @@ export async function POST(request: Request) {
 
   try {
     await transporter.sendMail(content);
-    return new Response("", { status: 200, statusText: "Email send" });
   } catch (error) {
-    return new Response("", { status: 400, statusText: "Email not send" });
+    return new Response("Email not sent", {
+      status: 400,
+      statusText: "Email not sent",
+    });
   }
+
+  return new Response("Email sent", { status: 200, statusText: "Email sent" });
 }
