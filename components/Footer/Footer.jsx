@@ -45,7 +45,7 @@ export default function Footer() {
         </ul>
       </div>
       <div className="text-gray-700 text-center text-sm">
-        <h6>{currentYear}</h6>
+        <h6>&copy; {currentYear}</h6>
         <h6>Made with 🍕 by Francesco Pistone</h6>
       </div>
     </footer>
