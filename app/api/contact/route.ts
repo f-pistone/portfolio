@@ -46,9 +46,8 @@ export async function POST(request: Request) {
 
   try {
     await transporter.sendMail(content);
+    return new Response("", { status: 200, statusText: "Email send" });
   } catch (error) {
-    console.log(error);
+    return new Response("", { status: 400, statusText: "Email not send" });
   }
-
-  return new Response("Hi");
 }
