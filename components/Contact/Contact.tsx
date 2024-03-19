@@ -2,6 +2,8 @@
 
 import { sendContactForm } from "@/lib/api";
 import { useState } from "react";
+import { ToastContainer, toast, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
   const initValues = {
@@ -53,11 +55,49 @@ export default function Contact() {
       try {
         const send = await sendContactForm(values);
         if (send.ok) {
-          console.log("Success");
+          toast.success("Email sent", {
+            position: "top-center",
+            className: "!text-left !text-gray-800",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            closeButton: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+          });
+        } else {
+          toast.error("Email not sent", {
+            position: "top-center",
+            className: "!text-left !text-gray-800",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            closeButton: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            transition: Slide,
+          });
         }
         return;
       } catch (error) {
-        console.log(error);
+        toast.error("Error", {
+          position: "top-center",
+          className: "!text-left !text-gray-800",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          closeButton: false,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          transition: Slide,
+        });
         return;
       }
     }
@@ -169,6 +209,7 @@ export default function Contact() {
                 </span>
                 <span>Send</span>
               </button>
+              <ToastContainer />
             </div>
           </form>
         </div>
