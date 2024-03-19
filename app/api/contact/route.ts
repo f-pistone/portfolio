@@ -2,8 +2,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   const req = await request.json();
+  const { fullName, email, phone, message } = req;
 
-  let transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
     secure: process.env.MAIL_SECURE,
@@ -13,18 +14,38 @@ export async function POST(request: Request) {
     },
   });
 
-  const message = {
-    from: `"Francesco Pistone Portfolio" <${process.env.MAIL_USERNAME}>`,
+  let html = ``;
+  html = `<div style="max-width: 800px; margin: 0px auto;">`;
+  html += ` <h1 style=""margin-bottom: 5px;>New contact message</h1>`;
+  html += ` <div style="border: 2px solid #9ca3af; border-radius: 6px; padding: 10px;">`;
+  html += `   <div>`;
+  html += `     <h2>Full Name</h2>`;
+  html += `     <p style="font-size: 16px;">${fullName}</p>`;
+  html += `   </div>`;
+  html += `   <div>`;
+  html += `     <h2>Email</h2>`;
+  html += `     <p style="font-size: 16px;">${email}</p>`;
+  html += `   </div>`;
+  html += `   <div>`;
+  html += `     <h2>Phone</h2>`;
+  html += `     <p style="font-size: 16px;">${phone}</p>`;
+  html += `   </div>`;
+  html += `   <div>`;
+  html += `     <h2>Message</h2>`;
+  html += `     <p style="font-size: 16px;">${message}</p>`;
+  html += `   </div>`;
+  html += ` </div>`;
+  html += `</div>`;
+
+  const content = {
+    from: `"Francesco Pistone's Portfolio" <${process.env.MAIL_USERNAME}>`,
     to: process.env.MAIL_USERNAME,
     subject: "New Contact Message",
-    text: "Hello world?",
-    html: "<b>Hello world?</b>",
+    html: html,
   };
 
-  await transporter.sendMail(message);
-
   try {
-    await transporter.sendMail(message);
+    await transporter.sendMail(content);
   } catch (error) {
     console.log(error);
   }
