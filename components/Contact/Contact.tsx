@@ -68,6 +68,7 @@ export default function Contact() {
             theme: "light",
             transition: Slide,
           });
+          setValues(initValues);
         } else {
           toast.error("Email not sent", {
             position: "top-center",
