@@ -25,15 +25,18 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
       <div className="p-5">
         <div className="mb-5">
-          <h6 className="text-lg break-all mb-2">{project.title}</h6>
-          <p className="text-sm text-gray-600 break-all">
+          <h6 className="text-lg break-word mb-2">{project.title}</h6>
+          <p className="text-sm text-gray-600 break-word">
             {project.description}
           </p>
         </div>
         <div>
           <ul className="flex flex-wrap items-center gap-2">
             {project.languages.map((language, index) => (
-              <li key={index} className={`p-1 text-xs ${language.textColor} ${language.backgroundColor} rounded-md`}>
+              <li
+                key={index}
+                className={`p-1 text-xs ${language.textColor} ${language.backgroundColor} rounded-md`}
+              >
                 {language.name}
               </li>
             ))}
