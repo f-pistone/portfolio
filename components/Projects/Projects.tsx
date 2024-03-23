@@ -53,6 +53,22 @@ export default function Projects() {
     },
   ];
 
+  const fadeInListElements = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.05 * index,
+        },
+      };
+    },
+  };
+
   return (
     <motion.section
       id="projects"
@@ -74,10 +90,19 @@ export default function Projects() {
         <div className="px-5 py-[200px]">
           <h2 className="text-center text-3xl mb-10">Projects</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {projects.map((project) => (
-              <li key={project.id}>
+            {projects.map((project, index) => (
+              <motion.li
+                key={project.id}
+                variants={fadeInListElements}
+                initial="initial"
+                whileInView="animate"
+                viewport={{
+                  once: true,
+                }}
+                custom={index}
+              >
                 <ProjectCard project={project}></ProjectCard>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

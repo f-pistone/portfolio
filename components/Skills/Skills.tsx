@@ -64,6 +64,22 @@ export default function Skills() {
     },
   ];
 
+  const fadeInListElements = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => {
+      return {
+        opacity: 1,
+        y: 0,
+        transition: {
+          delay: 0.05 * index,
+        },
+      };
+    },
+  };
+
   return (
     <motion.section
       id="skills"
@@ -89,7 +105,16 @@ export default function Skills() {
             <h3 className="text-xl mb-5">Front-end</h3>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {frontendLanguages.map((language, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  variants={fadeInListElements}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={index}
+                >
                   <div>
                     <div className="w-full aspect-square">
                       <img
@@ -102,7 +127,7 @@ export default function Skills() {
                       <h6 className="text-sm text-center">{language.name}</h6>
                     </div>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -113,7 +138,16 @@ export default function Skills() {
             <h3 className="text-xl mb-5">Back-end</h3>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {backendLanguages.map((language, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  variants={fadeInListElements}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={index}
+                >
                   <div>
                     <div className="w-full aspect-square">
                       <img
@@ -126,7 +160,7 @@ export default function Skills() {
                       <h6 className="text-sm text-center">{language.name}</h6>
                     </div>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
@@ -137,7 +171,16 @@ export default function Skills() {
             <h3 className="text-xl mb-5">In progress</h3>
             <ul className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-5">
               {inProgressLanguages.map((language, index) => (
-                <li key={index}>
+                <motion.li
+                  key={index}
+                  variants={fadeInListElements}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{
+                    once: true,
+                  }}
+                  custom={index}
+                >
                   <div>
                     <div className="w-full aspect-square">
                       <img
@@ -150,7 +193,7 @@ export default function Skills() {
                       <h6 className="text-sm text-center">{language.name}</h6>
                     </div>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
