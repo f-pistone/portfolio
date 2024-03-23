@@ -123,7 +123,7 @@ export default function Contact() {
       }}
     >
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[150px]">
+        <div className="px-5 py-[200px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
           <form
             id="contactForm"
