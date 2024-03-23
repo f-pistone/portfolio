@@ -13,13 +13,17 @@ interface Project {
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
-    <a href={project.url} target="_blank" className="block border h-full">
+    <a
+      href={project.url}
+      target="_blank"
+      className="block md:flex border rounded-md h-full hover:shadow-lg transition"
+    >
       <div>
-        <div className="p-3 w-full aspect-square border-b overflow-hidden">
+        <div className="p-3 w-full h-full flex items-center">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full aspect-square object-cover hover:scale-125 transition"
+            className="w-full aspect-square object-cover"
           />
         </div>
       </div>
@@ -30,7 +34,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             {project.description}
           </p>
         </div>
-        <div>
+        <div className="mb-5">
           <ul className="flex flex-wrap items-center gap-2">
             {project.languages.map((language, index) => (
               <li
@@ -42,9 +46,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             ))}
           </ul>
         </div>
-      </div>
-      <div className="p-5 text-right text-xs text-gray-600">
-        <span>{project.year}</span>
+        <div className="text-right text-xs text-gray-600">
+          <span>{project.year}</span>
+        </div>
       </div>
     </a>
   );
