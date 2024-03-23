@@ -1,8 +1,24 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function About() {
   return (
-    <section id="about" className="section">
+    <motion.section
+      id="about"
+      className="section"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[150px] flex flex-col md:flex-row items-center gap-10">
+        <div className="px-5 py-[200px] flex flex-col md:flex-row items-center gap-10">
           <div className="shrink-0 w-full sm:w-[300px] aspect-square border"></div>
           <div>
             <p className="text-2xl leading-10">
@@ -16,6 +32,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

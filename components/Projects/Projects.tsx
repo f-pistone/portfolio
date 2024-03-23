@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import ProjectCard from "../ProjectCard/ProjectCard";
 
 export default function Projects() {
@@ -51,9 +54,24 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="section">
+    <motion.section
+      id="projects"
+      className="section"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+        transition: {
+          delay: 0.3,
+        },
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[150px]">
+        <div className="px-5 py-[200px]">
           <h2 className="text-center text-3xl mb-10">Projects</h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
             {projects.map((project) => (
@@ -64,6 +82,6 @@ export default function Projects() {
           </ul>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

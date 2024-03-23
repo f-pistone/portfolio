@@ -2,6 +2,7 @@
 
 import { sendContactForm } from "@/lib/api";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -105,7 +106,22 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section bg-gray-50">
+    <motion.section
+      id="contact"
+      className="section bg-gray-50"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+        transition: {
+          delay: 0.3,
+        },
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
       <div className="max-w-[1200px] mx-auto my-0">
         <div className="px-5 py-[150px]">
           <h2 className="text-center text-3xl mb-10">Contact</h2>
@@ -215,6 +231,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Skills() {
   const frontendLanguages = [
     {
@@ -61,9 +65,24 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="section bg-gray-50">
+    <motion.section
+      id="skills"
+      className="section bg-gray-50"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+        transition: {
+          delay: 0.3,
+        },
+      }}
+      viewport={{
+        once: true,
+      }}
+    >
       <div className="max-w-[1200px] mx-auto my-0">
-        <div className="px-5 py-[150px]">
+        <div className="px-5 py-[200px]">
           <h2 className="text-center text-3xl mb-10">Skills</h2>
           {/* Frontend */}
           <div className="mb-10">
@@ -138,6 +157,6 @@ export default function Skills() {
           {/* In Progress End */}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
